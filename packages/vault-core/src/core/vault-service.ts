@@ -2,7 +2,7 @@ import type { MigrationConfig } from 'drizzle-orm/migrator';
 import type { SQLiteTable } from 'drizzle-orm/sqlite-core';
 import type { CompatibleDB } from './adapter';
 import type { VaultServiceConfig } from './config';
-import type { ConventionProfile } from './codec';
+import type { Codec, ConventionProfile } from './codec';
 import { detectPrimaryKey, listColumns, listTables } from './codec';
 import type { FileStore } from './fs';
 import type { Importer } from './importer';
@@ -28,7 +28,7 @@ export class VaultService<
 		config: MigrationConfig,
 	) => Promise<void>;
 	readonly syncEngine?: SyncEngine;
-	readonly codec?: import('./codec').Codec;
+	readonly codec?: Codec<string, string>;
 	readonly conventions?: ConventionProfile;
 
 	constructor(config: VaultServiceConfig<TDatabase, TImporters>) {

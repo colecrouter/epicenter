@@ -1,4 +1,4 @@
-import { defineCodec, type FormatCodec } from '../core/codec';
+import { defineCodec, type Codec } from '../core/codec';
 
 function stableStringify(value: unknown): string {
 	return JSON.stringify(value, replacer, 2);
